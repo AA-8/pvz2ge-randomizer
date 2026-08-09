@@ -105,23 +105,22 @@ for (var plant = 0; PlantProps[plant] != void 0; plant++) {
 
 		AlmanacTypes.push("Sun Value: ");
 	}
-
-	var NerfPossible = PlantStats.length; // If Plantfood effects were allowed to be nerfed, then you could just not use Plantfood on the plant and it would strictly be buffed.
-											// If Toughness were allowed to be nerfed, then you could just position the plant away from zombies and it would strictly be buffed.
-											// If Cooldown were allowed to be nerfed, then you could just plant one of them and win instantly. (This happened in testing).
-	// COOLDOWN:
-	if (PlantData["Cooldown"] != void 0) {
-		PlantStats.push(["Cooldown"]);
-		PlantModifiers.push(0);
-
-		AlmanacTypes.push("Cooldown: ");
-	}
 	// TOUGHNESS:
 	if (PlantData["Toughness"] != void 0) {
 		PlantStats.push(["Toughness"]);
 		PlantModifiers.push(0);
 
 		AlmanacTypes.push("Toughness: ");
+	}
+
+	var NerfPossible = PlantStats.length; // If Plantfood effects were allowed to be nerfed, then you could just not use Plantfood on the plant and it would strictly be buffed.
+											// If Cooldown were allowed to be nerfed, then you could just plant one of them and win instantly.
+	// COOLDOWN:
+	if (PlantData["Cooldown"] != void 0) {
+		PlantStats.push(["Cooldown"]);
+		PlantModifiers.push(0);
+
+		AlmanacTypes.push("Cooldown: ");
 	}
 	// PLANTFOOD:
 	var plantFood = Object.entries( PlantData ).filter( (stat) => stat[0].startsWith("Plantfood") || stat[0] == "ArmorToughness" );
