@@ -1,6 +1,6 @@
 function WaitForInitialization() {
 
-	if (System.get("chunks:///_virtual/JSONs.ts").PvZ2ObjectContainer.PlantAlmanac[0] == void 0) { setTimeout(WaitForInitialization, 500); return }
+	if (typeof System === "undefined" || typeof System.get("chunks:///_virtual/JSONs.ts") == "undefined" || System.get("chunks:///_virtual/JSONs.ts").PvZ2ObjectContainer.PlantAlmanac[0] == void 0) { setTimeout(WaitForInitialization, 500); return }
 	else { InitiateMod(); }
 
 }
